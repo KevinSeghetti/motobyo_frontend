@@ -1,4 +1,4 @@
-import logo from './logo.svg'
+import logo from './assets/Motobyo-Logo-1.png'
 import './App.css'
 
 import EmployeeListContainer from './containers/EmployeeListContainer'
@@ -6,8 +6,6 @@ import EmployeeNewContainer from './containers/EmployeeNewContainer'
 import Container from 'react-bootstrap/Container';
 import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
-
 
 //import React, { useState } from 'react';
 
@@ -35,7 +33,10 @@ const ExampleToast = ({ children }) => {
 
 
 const Header = () => (
-                      <h1 className="header">Welcome To React-Bootstrap</h1>
+   <div>
+                      <img src={logo} className="App-logo" alt="logo" />
+                      <h1 className="header">Welcome To Employee editing</h1>
+    </div>
 )
 
 const App = () => (
