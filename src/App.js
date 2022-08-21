@@ -1,43 +1,55 @@
-import logo from './logo.svg';
+import logo from './logo.svg'
+import './App.css'
+
+import EmployeeListContainer from './containers/EmployeeListContainer'
+import EmployeeNewContainer from './containers/EmployeeNewContainer'
+import Container from 'react-bootstrap/Container';
+import React, { useState, useEffect } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+
+
+//import React, { useState } from 'react';
+
+import Toast from 'react-bootstrap/Toast';
+import Button from 'react-bootstrap/Button';
+
 import './App.css';
 
+const ExampleToast = ({ children }) => {
+  const [show, toggleShow] = useState(true);
 
-import React, { useState, useEffect } from 'react';
-
-const App = () => {
-   const [employees, setEmployees] = useState([]);
-   useEffect(() => {
-      fetch('http://localhost:3000/employees')
-         .then((response) => response.json())
-         .then((data) => {
-            console.log(data);
-            setEmployees(data);
-         })
-         .catch((err) => {
-            console.log(err.message);
-         });
-   }, []);
-
-   console.log("results",employees)
-
-   return (
-          <div className="employees-container">
-         {employees.map((employee) => {
-            return (
-               <div className="employee-card" key={employee.id}>
-                  <h2 className="employee-title">{employee.firstName}</h2>
-                  <p className="employee-body">{employee.middleInitial}</p>
-                  <p className="employee-body">{employee.lastName}</p>
-                  <div className="button">
-                  <div className="delete-btn">Delete</div>
-                  </div>
-               </div>
-            );
-         })}
-      </div>
-
-   );
+  return (
+    <>
+      {!show && <Button onClick={() => toggleShow(true)}>Show Toast</Button>}
+      <Toast show={show} onClose={() => toggleShow(false)}>
+        <Toast.Header>
+          <strong className="mr-auto">React-Bootstrap</strong>
+        </Toast.Header>
+        <Toast.Body>{children}</Toast.Body>
+      </Toast>
+    </>
+  );
 };
+
+
+
+const Header = () => (
+                      <h1 className="header">Welcome To React-Bootstrap</h1>
+)
+
+const App = () => (
+  <Container className="p-3">
+    <Container className="p-5 mb-4 bg-light rounded-3">
+      <Header />
+      <ExampleToast />
+      <EmployeeListContainer />
+      <EmployeeNewContainer />
+
+
+    </Container>
+  </Container>
+)
 
 
 
