@@ -3,7 +3,7 @@ import EmployeeHeader from '../components/EmployeeHeader'
 import EmployeeListContainer from './EmployeeListContainer'
 import EmployeeNewContainer from './EmployeeNewContainer'
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const EmployeeContainer = (props) => {
    const [showNewDialog, setShowNewDialog] = useState(false);
@@ -15,7 +15,7 @@ const EmployeeContainer = (props) => {
             <EmployeeListContainer />
             { showNewDialog === true &&
                 <EmployeeNewContainer
-                  cancelDialog = { () => setShowNewDialog(false) }
+                  closeDialog = { () => setShowNewDialog(false) }
                   newEmployee = { props.newEmployee }
                  />
             }

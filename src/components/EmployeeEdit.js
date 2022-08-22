@@ -10,6 +10,8 @@ import "react-datepicker/dist/react-datepicker.css"
 import DatePicker from "react-datepicker"
 
 const EmployeeEditModal = (props) => {
+    // TODO: add field validation, so that user cannot send an invalid
+    // entry (for example, empty first name).
 
    let fieldsDefinition = [
        {
@@ -63,8 +65,6 @@ const EmployeeEditModal = (props) => {
 
            break;
          case 'date':
-             console.log("setting date",props.fieldData)
-
              inputComponent = <DatePicker
                  selected={props.fieldData[entry.fieldName]}
                  onChange= {
@@ -102,7 +102,7 @@ const EmployeeEditModal = (props) => {
                        }
                        if(event.key === 'Enter')
                        {
-                           this.handleSubmit(event)
+                           props.submit()
                        }
                    }
                }
@@ -117,7 +117,7 @@ const EmployeeEditModal = (props) => {
                </Modal.Body>
                <Modal.Footer>
                  <Button                             onClick={props.cancelDialog}>Cancel</Button>
-                 <Button variant="primary" autoFocus onClick={ (e) => this.handleSubmit(e) }>Ok</Button>
+                 <Button variant="primary" autoFocus onClick={props.submit}>Ok</Button>
                </Modal.Footer>
            </Modal>
        </div>

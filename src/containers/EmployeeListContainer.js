@@ -1,20 +1,13 @@
 
 import EmployeeList from '../components/EmployeeList'
 import React, { useState, useEffect } from 'react';
+import { FetchEmployeeList } from '../common/network.js'
 
 const EmployeeListContainer = () => {
    const [employees, setEmployees] = useState([]);
    useEffect(() => {
-      fetch('http://localhost:3000/employees')
-         .then((response) => response.json())
-         .then((data) => {
-            console.log(data);
-            setEmployees(data);
-         })
-         .catch((err) => {
-            console.log(err.message);
-         });
-   }, []);
+      FetchEmployeeList(setEmployees)
+   }, [])
 
    console.log("results",employees)
 
