@@ -21,13 +21,12 @@ const EmployeeListContainer = () => {
    return (
           <div className="employees-container">
 
-          return <EmployeeList
+          <EmployeeList
                employees={employees}
-            />
+          />
       </div>
    );
 };
-
 
 export default EmployeeListContainer;
 

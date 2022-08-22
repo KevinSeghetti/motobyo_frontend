@@ -1,18 +1,21 @@
+import EmployeeEditModal from '../components/EmployeeEdit'
+import React, { useState, useEffect } from 'react'
 
-import EmployeeNewModal from '../components/EmployeeNew'
-import React, { useState, useEffect } from 'react';
-
-const EmployeeNewContainer = () => {
+const EmployeeNewContainer = (props) => {
+    const [employeeData, setEmployeeData] = useState([])
 
    return (
           <div className="employees-container">
 
-          return <EmployeeNewModal
-            />
+              <EmployeeEditModal
+                cancelDialog = { props.cancelDialog }
+                fieldData = { employeeData }
+                setFieldData = { setEmployeeData }
+              />
       </div>
-   );
-};
+   )
+}
 
 
-export default EmployeeNewContainer;
+export default EmployeeNewContainer
 
