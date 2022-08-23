@@ -12,7 +12,10 @@ const ConfirmationModal = (props) => {
                        //(console.log("keydown",event.key))
                        if(event.key === 'Escape')
                        {
-                           props.cancelDialog()
+                           if('cancelDialog' in props)
+                           {
+                               props.cancelDialog()
+                           }
                        }
                        if(event.key === 'Enter')
                        {
@@ -29,14 +32,14 @@ const ConfirmationModal = (props) => {
                    { props.body }
                </Modal.Body>
                <Modal.Footer>
-                 <Button                             onClick={props.cancelDialog}>Cancel</Button>
+               { 'cancelDialog' in props &&
+                   <Button                             onClick={props.cancelDialog}>Cancel</Button>
+               }
                  <Button variant="primary" autoFocus onClick={props.submit}>Ok</Button>
                </Modal.Footer>
            </Modal>
        </div>
-
    )
 }
-
 
 export default ConfirmationModal;

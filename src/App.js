@@ -6,17 +6,18 @@ import {
   Navigate,
 } from "react-router-dom"
 
+import { useState } from 'react'
+
 import logo from './assets/Motobyo-Logo-1.png'
 import './App.css'
 
 import LoginContainer from './containers/LoginContainer'
 import EmployeeContainer from './containers/EmployeeContainer'
+import AboutContainer from './containers/AboutContainer'
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import './App.css'
-
-let isUserAuthenticated=false
+//===============================================================================
 
 const Header = (props) => (
    <div>
@@ -27,7 +28,7 @@ const Header = (props) => (
           paddingBottom: "1rem",
         }}
       >
-        <Link to="/login">Login</Link>
+        <Link to="/login">Login</Link>|{" "}
       { props.isUserAuthenticated &&
           <>
             <Link to="/employees">Employees</Link> |{" "}
@@ -38,31 +39,58 @@ const Header = (props) => (
    </div>
 )
 
-const App = () => (
-  <Container className="p-3">
-    <Container className="p-5 mb-4 bg-light rounded-3">
-      <Header
-          isUserAuthenticated={isUserAuthenticated}
-      />
-          <Routes>
-            <Route
-                path="*"
-                element={
-                    isUserAuthenticated ?
-                    <Navigate to="/employees" replace /> :
-                    <Navigate to="/login" replace />
-                }
-            />
-            <Route path="login" element={<LoginContainer />} />
-            <Route path="employees" element={
-                isUserAuthenticated ?
-                <EmployeeContainer /> :
-                <Navigate to="/login" replace />
-            } />
-          </Routes>
+const App = () => {
+    const [isUserAuthenticated, setIsUserAuthenticated] = useState(false)
 
+  return (
+    <Container className="p-3">
+      <Container className="p-5 mb-4 bg-light rounded-3">
+        <Header
+            isUserAuthenticated={isUserAuthenticated}
+        />
+            <Routes>
+              <Route
+                  path="*"
+                  element={
+                      isUserAuthenticated ?
+                      <Navigate to="/employees" replace /> :
+                      <Navigate to="/login" replace />
+                  }
+              />
+              <Route path="login"
+                  element = {
+                      <LoginContainer
+                        setAuthentication = { (auth) => {
+                            console.log("auth",auth)
+                            if(auth === 'success')
+                            {
+                                setIsUserAuthenticated(true)
+                            }
+                            else
+                            {
+                                setIsUserAuthenticated(false)
+                            }
+                          }
+                      }
+                      />
+                  }
+              />
+              <Route path="employees" element={
+                  isUserAuthenticated ?
+                  <EmployeeContainer /> :
+                  <Navigate to="/login" replace />
+              } />
+              <Route path="about" element={
+                  isUserAuthenticated ?
+                  <AboutContainer /> :
+                  <Navigate to="/login" replace />
+              } />
+
+            </Routes>
+
+      </Container>
     </Container>
-  </Container>
-)
+  )
+}
 
 export default App

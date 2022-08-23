@@ -11,12 +11,12 @@ npm run start
 
 ## TODO
 There are many things left to do before this app could be safely deployed
-
 * login
 * much more styling
-* parsing of dates from server in editor
-* fix dropdown filter to not change URL
 * add proptypes
+* input field validation
+* actual auth with server, stored in cookie and sent with all requests
+*
 
 This simple app is built around a single page which is the employee list.
 All editing is done via pop-up dialogs in front of that list.

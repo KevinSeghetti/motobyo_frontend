@@ -68,8 +68,9 @@ const EmployeeEditModal = (props) => {
 
            break;
          case 'date':
+             console.log("date",props.fieldData,entry)
              inputComponent = <DatePicker
-                 selected={parseISO(props.fieldData[entry.fieldName])}
+                 selected={ entry.fieldName in props.fieldData && props.fieldData[entry.fieldName] ?parseISO(props.fieldData[entry.fieldName]):entry.default}
                  onChange= {
                      (date:Date) => {
                          props.setFieldData({...props.fieldData, [entry.fieldName]: date.toISOString() })

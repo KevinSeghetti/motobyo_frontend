@@ -33,7 +33,7 @@ const EmployeeList = (props) => {
                     <Col>{employee.middleInitial}</Col>
                     <Col>{employee.lastName}</Col>
                     <Col className="delete-btn">
-                       <Button variant="danger" className=" btn-delete" size="sm" onClick={() => props.deleteEmployee(employee)}><PersonDashFill />&nbspDelete</Button>
+                       <Button variant="danger" className=" btn-delete" size="sm" onClick={() => props.deleteEmployee(employee)}><PersonDashFill />&nbsp;Delete</Button>
                     </Col>
                   </Row>
                )
