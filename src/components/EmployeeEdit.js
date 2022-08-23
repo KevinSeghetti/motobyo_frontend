@@ -13,6 +13,8 @@ const EmployeeEditModal = (props) => {
     // TODO: add field validation, so that user cannot send an invalid
     // entry (for example, empty first name).
 
+   //console.log("EmployeeEditModal",props)
+
    let fieldsDefinition = [
        {
            "label":"First Name",
@@ -109,7 +111,7 @@ const EmployeeEditModal = (props) => {
            >
            <Modal show={true}>
                <Modal.Header>
-                   <Modal.Title>Create new employee</Modal.Title>
+                   <Modal.Title>{props.title}</Modal.Title>
                </Modal.Header>
                <Modal.Body>
            { fieldComponents }

@@ -3,18 +3,14 @@ import './App.css'
 
 import EmployeeContainer from './containers/EmployeeContainer'
 import Container from 'react-bootstrap/Container';
-import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
-//import React, { useState } from 'react';
-
-import Button from 'react-bootstrap/Button'
 
 import './App.css'
 
+
 const Header = () => (
    <div>
-                      <img src={logo} className="App-logo" alt="logo" />
+                      <img src={logo} className="App-logo" alt="logo" style={{ "width":"100%","aspectRatio":"1/1"}} />
     </div>
 )
 
