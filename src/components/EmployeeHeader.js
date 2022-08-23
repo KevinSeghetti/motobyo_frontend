@@ -23,11 +23,11 @@ const EmployeeHeader = (props) => {
             <Row>
                <Col>
                   <DropdownButton id="dropdown-basic-button" title="Filter"
-                     onSelect = { (key) => props.updateShowStatus(key.substring(2)) }
+                     onSelect = { (key) => props.updateShowStatus(key) }
                      >
-                     <Dropdown.Item href="#/active"  >Active</Dropdown.Item>
-                     <Dropdown.Item href="#/inactive">Inactive</Dropdown.Item>
-                     <Dropdown.Item href="#/all"     >All</Dropdown.Item>
+                     <Dropdown.Item eventKey="active"  >Active</Dropdown.Item>
+                     <Dropdown.Item eventKey="inactive">Inactive</Dropdown.Item>
+                     <Dropdown.Item eventKey="all"     >All</Dropdown.Item>
                   </DropdownButton>
                </Col>
                <Col>
