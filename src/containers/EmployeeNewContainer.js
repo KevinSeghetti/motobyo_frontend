@@ -8,7 +8,7 @@ const EmployeeNewContainer = (props) => {
     const [employeeData, setEmployeeData] = useState([])
 
    return (
-          <div className="employees-container">
+          <div className="employees-new">
 
               <EmployeeEditModal
                 title="Create new employee"

@@ -1,19 +1,42 @@
-import './Employee.css';
+import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Navbar from 'react-bootstrap/Navbar';
 
+//-------------------------------------------------------------------------------
 
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import './Employee.css'
+
+//-------------------------------------------------------------------------------
 
 const EmployeeHeader = (props) => {
-
    return (
-       <div>
-       <h1 className="header">Welcome To Employee editing</h1>
-        <Button                             onClick={props.newEmployee}>New</Button>
-       </div>
+      <div>
+         <Row>
+            <Col xs="12">
+               <h1 className="header">Welcome To Employee editing</h1>
+            </Col>
+         </Row>
+         <Navbar>
+            <Row>
+               <Col>
+                  <DropdownButton id="dropdown-basic-button" title="Filter"
+                     onSelect = { (key) => props.updateShowStatus(key.substring(2)) }
+                     >
+                     <Dropdown.Item href="#/active"  >Active</Dropdown.Item>
+                     <Dropdown.Item href="#/inactive">Inactive</Dropdown.Item>
+                     <Dropdown.Item href="#/all"     >All</Dropdown.Item>
+                  </DropdownButton>
+               </Col>
+               <Col>
+                  <Button onClick={props.newEmployee}>New</Button>
+               </Col>
+            </Row>
+         </Navbar>
+      </div>
    )
 }
 
-
-export default EmployeeHeader;
+export default EmployeeHeader

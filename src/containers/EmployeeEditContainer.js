@@ -4,12 +4,12 @@ import { UpdateEmployee } from'../common/network.js'
 
 //===============================================================================
 
-const EmployeeNewContainer = (props) => {
-    console.log("EmployeeNewContainer",props)
+const EmployeeEditContainer = (props) => {
+    console.log("EmployeeEditContainer",props)
     const [employeeData, setEmployeeData] = useState(props.employee)
 
    return (
-          <div className="employees-container">
+          <div className="employees-editor">
 
               <EmployeeEditModal
                 title = "Edit employee"
@@ -17,7 +17,7 @@ const EmployeeNewContainer = (props) => {
                 submit = { () =>
                     {
                         UpdateEmployee(employeeData)
-                        // currently the new employee dialog appears in front
+                        // currently the edit employee dialog appears in front
                         // of the employee list, so closing the dialog automatically
                         // reloads the list. If we were using a network cache
                         // we would need to send a cache invalidation message at this point
@@ -36,5 +36,5 @@ const EmployeeNewContainer = (props) => {
 
 //-------------------------------------------------------------------------------
 
-export default EmployeeNewContainer
+export default EmployeeEditContainer
 

@@ -1,13 +1,10 @@
 import ConfirmationModal from '../components/ConfirmationModal'
-import React, { useState } from 'react'
-import { PostNewEmployee } from'../common/network.js'
 
 //===============================================================================
 
 const EmployeeDeleteContainer = (props) => {
-
    return (
-          <div className="employees-container">
+          <div className="employees-delete">
 
               <ConfirmationModal
                 title = "Delete Employee"

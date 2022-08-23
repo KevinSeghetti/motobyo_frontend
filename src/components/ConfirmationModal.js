@@ -1,12 +1,6 @@
 
 import Button from 'react-bootstrap/Button'
-import Row from 'react-bootstrap/Row'
 import Modal from 'react-bootstrap/Modal'
-import Col from 'react-bootstrap/Col'
-
-import "react-datepicker/dist/react-datepicker.css"
-
-import DatePicker from "react-datepicker"
 
 const ConfirmationModal = (props) => {
 

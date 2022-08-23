@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 import EmployeeHeader from '../components/EmployeeHeader'
 import EmployeeListContainer from './EmployeeListContainer'
@@ -11,16 +11,21 @@ import { DeleteEmployee } from'../common/network.js'
 //===============================================================================
 
 const EmployeeContainer = (props) => {
-   const [showNewDialog, setShowNewDialog] = useState(false);
-   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
-   const [showEditDialog, setShowEditDialog] = useState(false);
-   const [employee, setEmployee] = useState(null);
+   const [showNewDialog, setShowNewDialog] = useState(false)
+   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
+   const [showEditDialog, setShowEditDialog] = useState(false)
+   const [employee, setEmployee] = useState(null)
+   const [showStatus, setShowStatus] = useState("active")
 
    return (
           <div className="employees-container">
 
-            <EmployeeHeader newEmployee={(event) => setShowNewDialog(true) } />
+            <EmployeeHeader
+                newEmployee={(event) => setShowNewDialog(true) }
+                updateShowStatus = { setShowStatus }
+            />
             <EmployeeListContainer
+                showStatus = { showStatus }
                 deleteEmployee =
                     {
                         (employee) =>
@@ -45,34 +50,24 @@ const EmployeeContainer = (props) => {
                 <EmployeeNewContainer
                   closeDialog = { () => setShowNewDialog(false) }
                   newEmployee = { props.newEmployee }
-                 />
+                />
             }
             { showEditDialog === true &&
                 <EmployeeEditContainer
                   closeDialog = { () => setShowEditDialog(false) }
                   employee = { employee }
-                 />
+                />
             }
             { showDeleteDialog === true &&
                 <EmployeeDeleteContainer
                   closeDialog = { () => setShowDeleteDialog(false) }
                   employee = { employee }
-                  deleteEmployee =
-                  {
-                      () =>
-                      {
-                          console.log("delete",employee)
-                          DeleteEmployee(employee)
-                      }
-                  }
-                 />
+                  deleteEmployee = { () => { DeleteEmployee(employee) } }
+                />
             }
-
-
       </div>
-   );
-};
+   )
+}
 
-
-export default EmployeeContainer;
+export default EmployeeContainer
 

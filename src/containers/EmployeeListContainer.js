@@ -1,10 +1,12 @@
 
 import EmployeeList from '../components/EmployeeList'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { FetchEmployeeList } from '../common/network.js'
 
 const EmployeeListContainer = (props) => {
-   const [employees, setEmployees] = useState([]);
+   console.log("EmployeeListContainer",props)
+   const [employees, setEmployees] = useState([])
+
    useEffect(() => {
       FetchEmployeeList(setEmployees)
    }, [])
@@ -12,16 +14,14 @@ const EmployeeListContainer = (props) => {
    //console.log("EmployeeListContainer:results",employees)
 
    return (
-          <div className="employees-container">
+       <EmployeeList
+            showStatus     = { props.showStatus }
+            employees      = { employees }
+            editEmployee   = { props.editEmployee }
+            deleteEmployee = { props.deleteEmployee }
+       />
+   )
+}
 
-          <EmployeeList
-               employees      = { employees }
-               editEmployee   = { props.editEmployee }
-               deleteEmployee = { props.deleteEmployee }
-          />
-      </div>
-   );
-};
-
-export default EmployeeListContainer;
+export default EmployeeListContainer
 
