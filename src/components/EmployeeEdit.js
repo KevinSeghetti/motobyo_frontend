@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col'
 import "react-datepicker/dist/react-datepicker.css"
 
 import DatePicker from "react-datepicker"
+import { parseISO } from "date-fns"
 
 const EmployeeEditModal = (props) => {
     // TODO: add field validation, so that user cannot send an invalid
@@ -68,12 +69,10 @@ const EmployeeEditModal = (props) => {
            break;
          case 'date':
              inputComponent = <DatePicker
-                 selected={props.fieldData[entry.fieldName]}
+                 selected={parseISO(props.fieldData[entry.fieldName])}
                  onChange= {
                      (date:Date) => {
-                         console.log("date",date)
-                         props.setFieldData({...props.fieldData, [entry.fieldName]: date })
-                         console.log("all",props.fieldData)
+                         props.setFieldData({...props.fieldData, [entry.fieldName]: date.toISOString() })
                      }
                  }
              />
