@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Coding Challenge",
+  "name": "Sample Employee editor for coding challenge",
+
   "icons": [
     {
       "src": "favicon.ico",
