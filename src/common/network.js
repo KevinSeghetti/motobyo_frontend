@@ -2,7 +2,7 @@
 //===============================================================================
 
 //const baseUrl="http://localhost:3000/"
-const baseUrl="/"
+const baseUrl="/api/"
 const employeesUrl=baseUrl+"employees/"
 const loginUrl=baseUrl+"login"
 
