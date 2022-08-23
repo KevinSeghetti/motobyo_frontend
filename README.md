@@ -29,7 +29,7 @@ There are many things left to do before this app could be safely deployed
 * add proptypes
 * input field validation
 * actual auth with server, stored in cookie and sent with all requests
-*
+* unit tests
 
 
 # create react app original docs
