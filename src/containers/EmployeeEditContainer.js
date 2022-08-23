@@ -23,7 +23,7 @@ const EmployeeEditContainer = (props) => {
                         // we would need to send a cache invalidation message at this point
                         // or implement versioning on the server, and have the post
                         // return a new list version
-
+                        props.reloadList()
                         props.closeDialog()
                     }
                 }

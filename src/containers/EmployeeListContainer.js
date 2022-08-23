@@ -9,7 +9,7 @@ const EmployeeListContainer = (props) => {
 
    useEffect(() => {
       FetchEmployeeList(setEmployees)
-   }, [])
+   }, [props.redrawListCounter])
 
    //console.log("EmployeeListContainer:results",employees)
 

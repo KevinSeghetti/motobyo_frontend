@@ -16,7 +16,10 @@ const EmployeeContainer = (props) => {
    const [showEditDialog, setShowEditDialog] = useState(false)
    const [employee, setEmployee] = useState(null)
    const [showStatus, setShowStatus] = useState("active")
+   // kts is this the best way to do this?
+   const [redrawListCounter, setRedrawListCounter] = useState(0)
 
+   let ReloadList = () => { console.log("reload list",redrawListCounter); setRedrawListCounter(redrawListCounter+1) }
    return (
           <div className="employees-container">
 
@@ -26,6 +29,7 @@ const EmployeeContainer = (props) => {
             />
             <EmployeeListContainer
                 showStatus = { showStatus }
+                redrawListCounter = { redrawListCounter }
                 deleteEmployee =
                     {
                         (employee) =>
@@ -49,11 +53,12 @@ const EmployeeContainer = (props) => {
             { showNewDialog === true &&
                 <EmployeeNewContainer
                   closeDialog = { () => setShowNewDialog(false) }
-                  newEmployee = { props.newEmployee }
+                  reloadList = { ReloadList }
                 />
             }
             { showEditDialog === true &&
                 <EmployeeEditContainer
+                  reloadList = { ReloadList }
                   closeDialog = { () => setShowEditDialog(false) }
                   employee = { employee }
                 />
@@ -62,7 +67,12 @@ const EmployeeContainer = (props) => {
                 <EmployeeDeleteContainer
                   closeDialog = { () => setShowDeleteDialog(false) }
                   employee = { employee }
-                  deleteEmployee = { () => { DeleteEmployee(employee) } }
+                  deleteEmployee = { () =>
+                     {
+                        DeleteEmployee(employee)
+                        ReloadList()
+                     }
+                  }
                 />
             }
       </div>

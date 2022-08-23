@@ -8,6 +8,30 @@ npm run install
 ### to run
 npm run start
 
+
+## TODO
+There are many things left to do before this app could be safely deployed
+
+* login
+* much more styling
+* parsing of dates from server in editor
+* fix dropdown filter to not change URL
+* add proptypes
+
+This simple app is built around a single page which is the employee list.
+All editing is done via pop-up dialogs in front of that list.
+
+Click the New button to create a new employee.
+Click the delete button on one of the employees listed to delete it.
+Click the first name on one of the employees to edit their data
+
+Deleting an employee doesn't actually delete them, it just marks them as inactive
+
+The filter dropdown selects whether to display active, inactive, or all employees
+
+
+# create react app original docs
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
