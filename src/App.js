@@ -12,6 +12,7 @@ import logo from './assets/Motobyo-Logo-1.png'
 import './App.css'
 
 import LoginContainer from './containers/LoginContainer'
+import LogoutContainer from './containers/LogoutContainer'
 import EmployeeContainer from './containers/EmployeeContainer'
 import AboutContainer from './containers/AboutContainer'
 import Container from 'react-bootstrap/Container';
@@ -28,7 +29,12 @@ const Header = (props) => (
           paddingBottom: "1rem",
         }}
       >
-        <Link to="/login">Login</Link>|{" "}
+      { !props.isUserAuthenticated &&
+        <><Link to="/login">Login</Link>|{" "}</>
+      }
+      { props.isUserAuthenticated &&
+        <><Link to="/logout">Logout</Link>|{" "}</>
+      }
       { props.isUserAuthenticated &&
           <>
             <Link to="/employees">Employees</Link> |{" "}
@@ -60,6 +66,7 @@ const App = () => {
               <Route path="login"
                   element = {
                       <LoginContainer
+                        isUserAuthenticated = { isUserAuthenticated }
                         setAuthentication = { (auth) => {
                             console.log("auth",auth)
                             if(auth === 'success')
@@ -75,6 +82,17 @@ const App = () => {
                       />
                   }
               />
+              <Route path="logout"
+                  element = {
+                      <LogoutContainer
+                        clearAuthentication = { () => {
+                            setIsUserAuthenticated(false)
+                          }
+                      }
+                      />
+                  }
+              />
+
               <Route path="employees" element={
                   isUserAuthenticated ?
                   <EmployeeContainer /> :

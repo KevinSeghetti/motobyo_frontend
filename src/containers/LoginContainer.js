@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import Login from '../components/Login'
 import ConfirmationModal from '../components/ConfirmationModal'
+import { Navigate, } from "react-router-dom"
+
 
 import { NetworkLogin } from '../common/network.js'
 
@@ -14,6 +16,10 @@ const LoginContainer = (props) => {
 
    console.log("error",error)
 
+   if(props.isUserAuthenticated)
+   {
+       return <Navigate to="/employees" />
+   }
    return (
           <div className="login-container">
             <Login
