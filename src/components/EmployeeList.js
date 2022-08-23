@@ -1,9 +1,9 @@
-import './Employee.css';
+import './Employee.css'
 
 import ListGroup from 'react-bootstrap/ListGroup'
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 import { PersonDashFill } from 'react-bootstrap-icons'
 
 const EmployeeList = (props) => {
@@ -33,7 +33,7 @@ const EmployeeList = (props) => {
                     <Col>{employee.middleInitial}</Col>
                     <Col>{employee.lastName}</Col>
                     <Col className="delete-btn">
-                       <Button variant="danger" className=" btn-delete" size="sm" onClick={() => props.deleteEmployee(employee)}><PersonDashFill />&nbsp;Delete</Button>
+                       <Button variant="danger" className=" btn-delete" size="sm" onClick={() => props.deleteEmployee(employee)}><PersonDashFill />&nbspDelete</Button>
                     </Col>
                   </Row>
                )
@@ -41,8 +41,8 @@ const EmployeeList = (props) => {
          }
       </div>
 
-   );
-};
+   )
+}
 
 
-export default EmployeeList;
+export default EmployeeList
