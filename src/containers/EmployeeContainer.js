@@ -21,7 +21,11 @@ const EmployeeContainer = (props) => {
    // kts is this the best way to do this?
    const [redrawListCounter, setRedrawListCounter] = useState(0)
 
-   let ReloadList = () => { console.log("reload list",redrawListCounter); setRedrawListCounter(redrawListCounter+1) }
+   let ReloadList = () =>
+   {
+       console.log("EmployeeContainer:reload list",redrawListCounter)
+       setRedrawListCounter(redrawListCounter+1)
+   }
    return (
           <div className="employees-container">
 

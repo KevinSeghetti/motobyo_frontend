@@ -66,9 +66,9 @@ const EmployeeEditModal = (props) => {
                  onChange = { (event) => props.setFieldData({...props.fieldData, [entry.fieldName]: event.target.value }) }
              />
 
-           break;
+           break
          case 'date':
-             console.log("date",props.fieldData,entry)
+             //console.log("EmployeeEdit:date",props.fieldData,entry)
              inputComponent = <DatePicker
                 disabled = { entry.readOnly || props.readOnly }
 
@@ -79,9 +79,9 @@ const EmployeeEditModal = (props) => {
                      }
                  }
              />
-           break;
+           break
          default:
-           console.log(`invalid field type ${entry.fieldType}.`);
+           console.log(`EmployeeEdit:invalid field type ${entry.fieldType}.`)
        }
 
        return <Row key={index} >
@@ -99,7 +99,6 @@ const EmployeeEditModal = (props) => {
            onKeyDown=
                { (event) =>
                    {
-                       //(console.log("keydown",event.key))
                        if(event.key === 'Escape')
                        {
                            if('cancelDialog' in props)
@@ -135,4 +134,4 @@ const EmployeeEditModal = (props) => {
 }
 
 
-export default EmployeeEditModal;
+export default EmployeeEditModal

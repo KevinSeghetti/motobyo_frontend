@@ -11,9 +11,9 @@ const loginUrl=baseUrl+"login"
 function handleErrors(response) {
     if (!response.ok) {
         console.log("handleErrors",response.body)
-        throw Error(response.statusText);
+        throw Error(response.statusText)
     }
-    return response;
+    return response
 }
 
 //-------------------------------------------------------------------------------

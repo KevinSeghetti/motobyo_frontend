@@ -42,4 +42,4 @@ const ConfirmationModal = (props) => {
    )
 }
 
-export default ConfirmationModal;
+export default ConfirmationModal

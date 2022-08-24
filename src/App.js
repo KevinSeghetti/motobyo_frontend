@@ -14,7 +14,7 @@ import LoginContainer from './containers/LoginContainer'
 import LogoutContainer from './containers/LogoutContainer'
 import EmployeeContainer from './containers/EmployeeContainer'
 import AboutContainer from './containers/AboutContainer'
-import Container from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 //===============================================================================
@@ -67,7 +67,7 @@ const App = () => {
                       <LoginContainer
                         isUserAuthenticated = { isUserAuthenticated }
                         setAuthentication = { (auth) => {
-                            console.log("auth",auth)
+                            console.log("App:auth",auth)
                             if(auth === 'success')
                             {
                                 setIsUserAuthenticated(true)
