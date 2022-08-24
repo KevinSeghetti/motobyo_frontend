@@ -90,7 +90,7 @@ export const PostNewEmployee = (data) =>
 
 export const UpdateEmployee = (data) =>
 {
-   fetch(employeesUrl+'/'+data.id,{
+   fetch(employeesUrl+data.id,{
       method: 'PUT', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
