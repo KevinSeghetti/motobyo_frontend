@@ -13,6 +13,16 @@ npm run start
 This simple app is built around a single page which is the employee list.
 All editing is done via pop-up dialogs in front of that list.
 
+It has a rudimentary user system, the app begins logged out.
+
+There are 2 users in the seed data, one of them is:
+username: "SteveJovanelly"
+password : "test"
+
+The system uses react router for page navigation. When not logged in the
+only valid route is login (attempting to view other routes will redirect to the login page)
+Once logged in, the login route goes away, and routes for logout, employee, and an about appear.
+
 Click the New button to create a new employee.
 Click the delete button on one of the employees listed to delete it.
 Click the first name on one of the employees to edit their data
