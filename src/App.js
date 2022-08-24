@@ -1,10 +1,11 @@
 import {
   Routes,
   Route,
-  Link,
   Navigate,
 } from "react-router-dom"
-
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import { LinkContainer } from 'react-router-bootstrap'
 import { useState } from 'react'
 
 import logo from './assets/Motobyo-Logo-1.png'
@@ -22,25 +23,28 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const Header = (props) => (
    <div>
       <img src={logo} className="App-logo" alt="logo" style={{ "width":"100%","aspectRatio":"1/1"}} />
-      <nav
-        style={{
-          borderBottom: "solid 1px",
-          paddingBottom: "1rem",
-        }}
-      >
-      { !props.isUserAuthenticated &&
-        <><Link to="/login">Login</Link>|{" "}</>
-      }
-      { props.isUserAuthenticated &&
-        <><Link to="/logout">Logout</Link>|{" "}</>
-      }
-      { props.isUserAuthenticated &&
-          <>
-            <Link to="/employees">Employees</Link> |{" "}
-            <Link to="/about">About</Link> |{" "}
-          </>
-      }
-      </nav>
+      <Navbar bg="light" expand="lg">
+          <Container>
+            <Navbar.Brand>Coding Challenge</Navbar.Brand>
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+
+                { !props.isUserAuthenticated &&
+                  <><LinkContainer to="/login"><Nav.Link>Login</Nav.Link></LinkContainer></>
+                }
+                { props.isUserAuthenticated &&
+                  <><LinkContainer to="/logout"><Nav.Link>Logout</Nav.Link></LinkContainer></>
+                }
+                { props.isUserAuthenticated &&
+                    <>
+                      <LinkContainer to="/employees"><Nav.Link>Employees</Nav.Link></LinkContainer>
+                      <LinkContainer to="/about"><Nav.Link>About</Nav.Link></LinkContainer>
+                    </>
+                }
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+      </Navbar>
    </div>
 )
 
