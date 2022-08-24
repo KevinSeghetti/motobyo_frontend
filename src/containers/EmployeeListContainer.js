@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { FetchEmployeeList } from '../common/network.js'
 
 const EmployeeListContainer = (props) => {
-   console.log("EmployeeListContainer",props)
+   //console.log("EmployeeListContainer",props)
    const [employees, setEmployees] = useState([])
 
    useEffect(() => {
