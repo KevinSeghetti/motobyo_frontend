@@ -8,6 +8,9 @@ npm run install
 ### to run
 npm run start
 
+You will need to also have the challenge back end running for this to work.
+See https://github.com/KevinSeghetti/motobyo_backend
+
 
 ## Usage
 This simple app is built around a single page which is the employee list.
