@@ -49,7 +49,7 @@ const Header = (props) => (
 )
 
 const App = () => {
-    const [isUserAuthenticated, setIsUserAuthenticated] = useState(false)
+  const [isUserAuthenticated, setIsUserAuthenticated] = useState(false)
 
   return (
     <Container className="p-3">
@@ -108,7 +108,6 @@ const App = () => {
               } />
 
             </Routes>
-
       </Container>
     </Container>
   )
