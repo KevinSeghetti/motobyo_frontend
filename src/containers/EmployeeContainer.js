@@ -32,6 +32,7 @@ const EmployeeContainer = (props) => {
             <EmployeeHeader
                 newEmployee={(event) => setShowNewDialog(true) }
                 updateShowStatus = { setShowStatus }
+                showStatus = { showStatus }
             />
             <EmployeeListContainer
                 showStatus = { showStatus }
