@@ -56,7 +56,7 @@ const EmployeeEditModal = (props) => {
        switch (entry.type) {
          case 'string':
              inputComponent = <input className="form-control"
-                 disabled = { entry.readOnly }
+                 disabled = { entry.readOnly || props.readOnly }
                  type="text"
                  name={index}
                  defaultValue={ entry.fieldName in props.fieldData?props.fieldData[entry.fieldName]:entry.default }
@@ -70,6 +70,8 @@ const EmployeeEditModal = (props) => {
          case 'date':
              console.log("date",props.fieldData,entry)
              inputComponent = <DatePicker
+                disabled = { entry.readOnly || props.readOnly }
+
                  selected={ entry.fieldName in props.fieldData && props.fieldData[entry.fieldName] ?parseISO(props.fieldData[entry.fieldName]):entry.default}
                  onChange= {
                      (date:Date) => {
@@ -100,7 +102,10 @@ const EmployeeEditModal = (props) => {
                        //(console.log("keydown",event.key))
                        if(event.key === 'Escape')
                        {
-                           props.cancelDialog()
+                           if('cancelDialog' in props)
+                           {
+                               props.cancelDialog()
+                           }
                        }
                        if(event.key === 'Enter')
                        {
@@ -118,7 +123,9 @@ const EmployeeEditModal = (props) => {
 
                </Modal.Body>
                <Modal.Footer>
-                 <Button                             onClick={props.cancelDialog}>Cancel</Button>
+                 { 'cancelDialog' in props &&
+                     <Button                             onClick={props.cancelDialog}>Cancel</Button>
+                 }
                  <Button variant="primary" autoFocus onClick={props.submit}>Ok</Button>
                </Modal.Footer>
            </Modal>

@@ -4,6 +4,7 @@ import EmployeeHeader from '../components/EmployeeHeader'
 import EmployeeListContainer from './EmployeeListContainer'
 import EmployeeNewContainer from './EmployeeNewContainer'
 import EmployeeEditContainer from './EmployeeEditContainer'
+import EmployeeViewContainer from './EmployeeViewContainer'
 import EmployeeDeleteContainer from './EmployeeDeleteContainer'
 
 import { DeleteEmployee } from'../common/network.js'
@@ -14,6 +15,7 @@ const EmployeeContainer = (props) => {
    const [showNewDialog, setShowNewDialog] = useState(false)
    const [showDeleteDialog, setShowDeleteDialog] = useState(false)
    const [showEditDialog, setShowEditDialog] = useState(false)
+   const [showViewDialog, setShowViewDialog] = useState(false)
    const [employee, setEmployee] = useState(null)
    const [showStatus, setShowStatus] = useState("active")
    // kts is this the best way to do this?
@@ -48,6 +50,15 @@ const EmployeeContainer = (props) => {
                             setShowEditDialog(true)
                         }
                     }
+                viewEmployee =
+                    {
+                        (employee) =>
+                        {
+                            console.log("EmployeeContainer::view",employee)
+                            setEmployee(employee)
+                            setShowViewDialog(true)
+                        }
+                    }
                 />
 
             { showNewDialog === true &&
@@ -63,6 +74,13 @@ const EmployeeContainer = (props) => {
                   employee = { employee }
                 />
             }
+            { showViewDialog === true &&
+                <EmployeeViewContainer
+                  closeDialog = { () => setShowViewDialog(false) }
+                  employee = { employee }
+                />
+            }
+
             { showDeleteDialog === true &&
                 <EmployeeDeleteContainer
                   closeDialog = { () => setShowDeleteDialog(false) }

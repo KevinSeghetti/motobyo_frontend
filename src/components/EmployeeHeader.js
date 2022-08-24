@@ -3,7 +3,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
-import Navbar from 'react-bootstrap/Navbar';
+import Navbar from 'react-bootstrap/Navbar'
+import { PersonPlus } from 'react-bootstrap-icons'
+
 
 //-------------------------------------------------------------------------------
 
@@ -31,7 +33,7 @@ const EmployeeHeader = (props) => {
                   </DropdownButton>
                </Col>
                <Col>
-                  <Button onClick={props.newEmployee}>New</Button>
+                  <Button size='sm' onClick={props.newEmployee}><PersonPlus /> New</Button>
                </Col>
             </Row>
          </Navbar>

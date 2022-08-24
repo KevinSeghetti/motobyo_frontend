@@ -17,6 +17,7 @@ const EmployeeListContainer = (props) => {
        <EmployeeList
             showStatus     = { props.showStatus }
             employees      = { employees }
+            viewEmployee   = { props.viewEmployee }
             editEmployee   = { props.editEmployee }
             deleteEmployee = { props.deleteEmployee }
        />
