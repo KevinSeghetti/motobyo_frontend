@@ -9,7 +9,7 @@ npm run install
 npm run start
 
 
-## Useage
+## Usage
 This simple app is built around a single page which is the employee list.
 All editing is done via pop-up dialogs in front of that list.
 
@@ -20,24 +20,34 @@ username: "SteveJovanelly"
 password : "test"
 
 The system uses react router for page navigation. When not logged in the
-only valid route is login (attempting to view other routes will redirect to the login page)
-Once logged in, the login route goes away, and routes for logout, employee, and an about appear.
+only valid route is login (attempting to view other routes will redirect to
+the login page). Once logged in, the login route goes away, and routes for
+logout, employee, and an about appear, and it navigates to the employee page.
 
-Click the New button to create a new employee.
+Click the New button to create a new employee. A popup to enter values appears.
+Cancel aborts the operation, Ok sends the data to the server, after which
+the pop-up closes and the list refreshes.
+
 Click the delete button on one of the employees listed to delete it.
-Click the first name on one of the employees to edit their data
+Cancel aborts the operation, Ok sends a command to the server to mark the
+employee as inactive, after which the pop-up closes and the list refreshes.
 
-Deleting an employee doesn't actually delete them, it just marks them as inactive
+Click the first name on one of the employees to view their details
+
+Click the edit button on one of the employees to edit their details.
+
+(all 3 options: create, view, edit, use the same component)
 
 The filter dropdown selects whether to display active, inactive, or all employees
 
+The about page mostly exists to have another page to navigate to.
+
+
 ## TODO
-There are many things left to do before this app could be safely deployed
-* highlighting of current page on nav
-* much more styling
-* put employee list into table
-* add proptypes
-* input field validation
+There are many things left to do before this app could be called complete
+* more styling
+* add react proptypes for props checking
+* input field validation, ghosting of Ok when not valid
 * actual auth with server, stored in cookie and sent with all requests
 * unit tests
 
